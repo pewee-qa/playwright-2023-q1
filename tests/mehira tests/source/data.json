@@ -1,0 +1,10 @@
+{
+  "MehiraUrl": "localhost:4200/",
+  "OTPSent": "OTP Successfully sent",
+  "OTP": "0",
+  "MehiraGroups": "http://localhost:4200/groups",
+  "promptMessage": "Group Created Successfully ",
+  "NameRequired": "Name is required",
+  "DescriptionRequired": "Description is required"
+   
+}
