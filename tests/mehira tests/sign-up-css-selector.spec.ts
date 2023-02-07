@@ -13,7 +13,7 @@ test("Scenario: Customer successfully registers his account", async ({
   //  When User inputs his credentials
 
   await page.locator('[placeholder="Input your first name"]').type("Nuelle");
-  await page.locator("#last-name-label").type("Ventanilla");
+  await page.locator("#last-name").type("Ventanilla");
   await page.locator("#emailAddress").type("nuelle.ventanilla@gmail.com");
   await page.locator(".chakra-button", { hasText: "Sign Up" }).click();
 
