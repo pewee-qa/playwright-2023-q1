@@ -1,7 +1,11 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
+
+import * as data from "../tests/shoppee tests/source/data.json";
 
 export default class ShopeeloginPage {
   ShopeeLink: Locator;
+
+  PopUpButton: Locator;
 
   LoginButton1: Locator;
 
@@ -15,8 +19,8 @@ export default class ShopeeloginPage {
 
   constructor(public page: Page) {
     this.page = page;
-
-    this.LoginButton1 = page.locator("text=Login");
+    this.PopUpButton = page.locator(".home-popup__close-button");
+    this.LoginButton1 = page.locator("//a[contains(text(),'Login')]");
     this.PhoneUserEmailButton = page.locator(
       '[placeholder="Phone number / Username / Email"]'
     );
@@ -25,26 +29,31 @@ export default class ShopeeloginPage {
     this.LoginButton2 = page.locator("//button[text()='Log In']");
     this.ViewsProfile = page.locator("navbar__username");
   }
-  async verifyShopeePage() {
-    await this.LoginButton1.isVisible();
+
+  async visitShopeePage() {
+    await this.page.goto(data.Shopee);
   }
 
-  async gotoShopeepage() {
-    await this.page.goto("https://shopee.ph/");
+  async closePopUpButton() {
+    await this.PopUpButton.isVisible();
+    await this.PopUpButton.click();
   }
 
   async clickLoginButton1() {
+    await this.LoginButton1.isVisible();
     await this.LoginButton1.click();
   }
 
   async inputPhoneUserEmail() {
+    const Phone = data.PhoneNumber;
     await this.PhoneUserEmailButton.isVisible();
-    await this.PhoneUserEmailButton.fill("+639364667181");
+    await this.PhoneUserEmailButton.fill(Phone);
   }
 
   async inputPassword() {
+    const Password = data.Pword;
     await this.PasswordButton.isVisible();
-    await this.PasswordButton.type("pEwEe102286");
+    await this.PasswordButton.type(Password);
   }
   async clickLoginButton2() {
     await this.LoginButton2.isVisible();
@@ -52,6 +61,5 @@ export default class ShopeeloginPage {
   }
   async viewsProfile() {
     await this.ViewsProfile.isVisible();
-    await expect(this.ViewsProfile.isVisible());
   }
 }

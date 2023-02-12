@@ -1,4 +1,5 @@
-import { test, expect, Locator, Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
+import * as data from "../tests/mehira tests/source/data.json";
 import Chance from "chance";
 const chance = new Chance();
 
@@ -86,33 +87,39 @@ export default class ShopeeloginPage {
   }
 
   async enterOTP0() {
+    const OTPcode = data.OTP;
     await this.OTPCode0.isVisible;
-    await this.OTPCode0.type("0");
+    await this.OTPCode0.type(OTPcode);
   }
 
   async enterOTP1() {
+    const OTPcode = data.OTP;
     await this.OTPCode1.isVisible();
-    await this.OTPCode1.type("0");
+    await this.OTPCode1.type(OTPcode);
   }
 
   async enterOTP2() {
+    const OTPcode = data.OTP;
     await this.OTPCode2.isVisible();
-    await this.OTPCode2.type("0");
+    await this.OTPCode2.type(OTPcode);
   }
 
   async enterOTP3() {
+    const OTPcode = data.OTP;
     await this.OTPCode3.isVisible();
-    await this.OTPCode3.type("0");
+    await this.OTPCode3.type(OTPcode);
   }
 
   async enterOTP4() {
+    const OTPcode = data.OTP;
     await this.OTPCode4.isVisible();
-    await this.OTPCode4.type("0");
+    await this.OTPCode4.type(OTPcode);
   }
 
   async enterOTP5() {
+    const OTPcode = data.OTP;
     await this.OTPCode5.isVisible();
-    await this.OTPCode5.type("0");
+    await this.OTPCode5.type(OTPcode);
   }
 
   async SubmitOTPCode() {
