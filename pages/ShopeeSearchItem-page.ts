@@ -1,7 +1,9 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export default class ShopeeSearchItemPage {
   ShopeeSearchBar: Locator;
+
+  PopUpButton: Locator;
 
   SearchButton: Locator;
 
@@ -11,12 +13,18 @@ export default class ShopeeSearchItemPage {
     this.page = page;
 
     this.ShopeeSearchBar = page.locator(".shopee-searchbar-input__input");
+    this.PopUpButton = page.locator(".home-popup__close-button");
     this.SearchButton = page.locator("//button[@type='button']");
     this.ItemResult = page.locator("'.shopee-search-item-result'");
   }
   async verifyShopeePage() {
     await this.ShopeeSearchBar.isVisible();
     await this.ShopeeSearchBar.fill("noise cancelling headset");
+  }
+
+  async closePopUpButton() {
+    await this.PopUpButton.isVisible();
+    await this.PopUpButton.click();
   }
 
   async checkItem() {
@@ -26,6 +34,5 @@ export default class ShopeeSearchItemPage {
 
   async viewsSearchedItem() {
     await this.ItemResult.isVisible();
-    await expect(this.ItemResult.isVisible());
   }
 }

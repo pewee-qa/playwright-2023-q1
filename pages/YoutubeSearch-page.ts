@@ -1,4 +1,5 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
+import * as data from "../tests/YouTube tests/source/data.json";
 
 export default class YoutubeSearch {
   YouTubeLink: Locator;
@@ -22,7 +23,7 @@ export default class YoutubeSearch {
     this.ResultVideo = page.locator(".style-scope ytd-section-list-renderer");
   }
 
-  async VisitYoTubePage() {
+  async VisitYouTubePage() {
     await this.YouTubeLink.isVisible();
   }
 
@@ -31,8 +32,9 @@ export default class YoutubeSearch {
   }
 
   async EnterVideoTitle() {
+    const flowers = data.videoMiley;
     await this.InputBar.isVisible();
-    await this.InputBar.type("Flowers by Miley Cyrus");
+    await this.InputBar.type(flowers);
   }
 
   async confirmVideo() {
@@ -42,6 +44,5 @@ export default class YoutubeSearch {
 
   async ViewVideoResult() {
     await this.ResultVideo.isVisible();
-    await expect(this.ResultVideo.isVisible());
   }
 }
