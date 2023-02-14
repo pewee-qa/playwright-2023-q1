@@ -8,7 +8,6 @@ test.describe("User searches a specific video", () => {
   });
 
   test("User searches an item", async ({ youtubeSearch }) => {
-    await youtubeSearch.VisitYouTubePage();
     await youtubeSearch.VerifySearchBar();
     await youtubeSearch.EnterVideoTitle();
     await youtubeSearch.confirmVideo();

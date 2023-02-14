@@ -23,10 +23,6 @@ export default class YoutubeSearch {
     this.ResultVideo = page.locator(".style-scope ytd-section-list-renderer");
   }
 
-  async VisitYouTubePage() {
-    await this.YouTubeLink.isVisible();
-  }
-
   async VerifySearchBar() {
     await this.YouTubeSearchBar.isVisible();
   }
