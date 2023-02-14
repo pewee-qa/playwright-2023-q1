@@ -62,4 +62,13 @@ export default class ShopeeloginPage {
   async viewsProfile() {
     await this.ViewsProfile.isVisible();
   }
+  async shopeePeweeLogin() {
+    await this.visitShopeePage();
+    await this.closePopUpButton();
+    await this.clickLoginButton1();
+    await this.inputPhoneUserEmail();
+    await this.inputPassword();
+    await this.clickLoginButton2();
+    //await expect(this.viewsProfile.isVisible();
+  }
 }
