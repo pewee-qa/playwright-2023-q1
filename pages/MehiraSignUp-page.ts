@@ -3,7 +3,7 @@ import * as data from "../tests/mehira tests/source/data.json";
 import Chance from "chance";
 const chance = new Chance();
 
-export default class ShopeeloginPage {
+export default class MehiraSignUpPage {
   MehiraLink: Locator;
 
   SignUpButton: Locator;
@@ -49,9 +49,6 @@ export default class ShopeeloginPage {
     this.OTPCode4 = page.locator("#emailOtp-4");
     this.OTPCode5 = page.locator("#emailOtp-5");
     this.WorkspaceName = page.locator("input[name='name']");
-  }
-  async gotoMehiraPage() {
-    await this.MehiraLink.isVisible();
   }
 
   async clickSignUp() {
