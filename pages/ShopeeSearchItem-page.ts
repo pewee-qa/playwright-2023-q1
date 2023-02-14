@@ -15,7 +15,9 @@ export default class ShopeeSearchItemPage {
     this.ShopeeSearchBar = page.locator(".shopee-searchbar-input__input");
     this.PopUpButton = page.locator(".home-popup__close-button");
     this.SearchButton = page.locator("//button[@type='button']");
-    this.ItemResult = page.locator("'.shopee-search-item-result'");
+    this.ItemResult = page.locator(
+      `(//div[@class='shopee-header-section__content']//div)[1]`
+    );
   }
   async verifyShopeePage() {
     await this.ShopeeSearchBar.isVisible();
